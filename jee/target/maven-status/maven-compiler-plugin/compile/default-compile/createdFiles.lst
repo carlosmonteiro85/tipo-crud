@@ -1,0 +1,6 @@
+com/legado/prototype/crudjee7/model/User.class
+com/legado/prototype/crudjee7/model/Usuario.class
+com/legado/prototype/crudjee7/model/Setor.class
+com/legado/prototype/crudjee7/conf/RestApplication.class
+com/legado/prototype/crudjee7/ejb/UsuarioBean.class
+com/legado/prototype/crudjee7/rest/UsuarioResource.class
