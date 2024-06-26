@@ -2,6 +2,7 @@ package com.legado.prototype.crudjee7.api.resource;
 
 import java.util.List;
 
+import com.legado.prototype.crudjee7.api.dto.response.UsuarioResponse;
 import com.legado.prototype.crudjee7.domain.ejb.UsuarioBean;
 import com.legado.prototype.crudjee7.domain.model.Usuario;
 
@@ -25,21 +26,21 @@ public class UsuarioResource {
     @Inject
     private UsuarioBean usuarioBean;
 
+    public UsuarioResource() {
+    }
+
     public UsuarioResource(UsuarioBean usuarioService) {
         this.usuarioBean = usuarioService;
     }
 
-    public UsuarioResource() {
-    }
-
     @GET
-    public List<Usuario> list() {
+    public List<UsuarioResponse> list() {
         return usuarioBean.findAll();
     }
 
     @POST
-    public Response create(Usuario usuario) {
-        usuarioBean.create(usuario);
+    public Response save(Usuario usuario) {
+        usuarioBean.save(usuario);
         return Response.status(Response.Status.CREATED).entity(usuario).build();
     }
 
@@ -49,6 +50,12 @@ public class UsuarioResource {
         usuario.setId(id);
         usuarioBean.update(usuario);
         return Response.ok(usuario).build();
+    }
+
+    @GET
+    @Path("/{id}")
+    public Response findById(@PathParam("id") Long id) {
+        return Response.ok(usuarioBean.findById(id)).build();
     }
 
     @DELETE

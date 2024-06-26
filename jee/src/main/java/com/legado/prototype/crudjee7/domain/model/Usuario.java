@@ -4,19 +4,24 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario implements Serializable {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nome", length = 100, nullable = false)
     private String nome;
-    private String cpf;
-    private String telefone;
-    private String email;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "setor_id")
-    private Setor setor;
+    @Column(name = "cpf", length = 11, nullable = false)
+    private String cpf;
+
+    @Column(name = "telefone", length = 15)
+    private String telefone;
+
+    @Column(name = "email", length = 100, nullable = false)
+    private String email;
 
     public Long getId() {
         return id;
@@ -56,13 +61,5 @@ public class Usuario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Setor getSetor() {
-        return setor;
-    }
-
-    public void setSetor(Setor setor) {
-        this.setor = setor;
     }
 }
