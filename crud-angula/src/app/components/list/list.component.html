@@ -1,0 +1,73 @@
+<div class="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+            <div class="navbar-wrapper">
+                <a class="navbar-brand" href="javascript:;">Usuários</a>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title ">Usuários</h4>
+                            <p class="card-category">Lista com usuários do sistema</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>CPF</th>
+                                            <th>Telefone</th>
+                                            <th>Email</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Estrutura de repetição angular, 
+                                         (*) indica que é uma diretiva que modifica a estrutura do DOM
+                                          let usuario of usuarios: Serve para iterar 
+                                          sobre o array usuarios. usuarios é uma propriedade definida na sua classe ListComponent
+                                          {{usuario.<propriedade>}} é a forma de acessar o objeto do array
+                                          -->
+                                        <tr *ngFor="let usuario of usuarios"> <!-- Estrutura de repetição angular -->
+                                            <td>{{ usuario.id }}</td>
+                                            <td>{{ usuario.nome }}</td>
+                                            <td>{{ usuario.cpf }}</td>
+                                            <td>{{ usuario.telefone }}</td>
+                                            <td class="text-primary">{{ usuario.email }}</td>
+                                            <td>
+                                                <div class="d-inline-flex">
+                                                    <a class="nav-link p-0 ml-6" routeLi routerLink="/profile" id="navbarDropdownMenuLink"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="material-icons">visibility</i>
+                                                    </a>
+                                                    <a (click)="showDialog(usuario)" class="nav-link p-0" id="navbarDropdownMenuLink"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="material-icons">delete</i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+
+
+
+
