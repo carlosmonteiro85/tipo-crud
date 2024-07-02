@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
-
   constructor(private http: HttpClient) { }
 
   create(usuarioRequest: Usuario){
@@ -27,5 +26,16 @@ export class UsuarioService {
       observe:'response',
       responseType: 'text'
     })
+  }
+
+  findById(id: any) :Observable<Usuario>{
+    return this.http.get<Usuario>(`${API_CONFIG.baseUrl}/usuarios/${id}`);
+  }
+
+  update(usuarioRequest: Usuario){
+    return this.http.put( `${API_CONFIG.baseUrl}/usuarios/${usuarioRequest.id}`, usuarioRequest, {
+      observe:'response',
+      responseType: 'text'
+    })  
   }
 }

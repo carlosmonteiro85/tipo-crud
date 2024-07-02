@@ -55,9 +55,6 @@ export class ListComponent implements OnInit {
     this.dialogService.showAlert().then(result => {
       if (result) {
         this.delete(`${usuario.id}`)
-      } else {
-        console.log(`Usuário ${usuario.nome} cancelou a exclusão`);
-        // Lógica para não excluir o usuário aqui
       }
     }).catch(error => {
       console.error('Erro ao exibir o diálogo:', error);

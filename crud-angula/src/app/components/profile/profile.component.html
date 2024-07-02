@@ -21,18 +21,28 @@
                         <!-- Final Card Header -->
                         <!-- INICIO form -->
                         <div class="card-body">
-                            <form>
+                            <form (ngSubmit)="update()">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Nome completo</label>
-                                            <input type="text" class="form-control">
+                                            <input
+                                                [formControl]="nome"
+                                                required
+                                                [(ngModel)]="usuarioRequest.nome" 
+                                                name="nome" 
+                                                type="text" 
+                                                class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">CPF</label>
-                                            <input type="number" class="form-control">
+                                            <input 
+                                                [(ngModel)]="usuarioRequest.cpf" 
+                                                name="cpf" 
+                                                type="number" 
+                                                class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -40,19 +50,28 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Telefone</label>
-                                            <input type="text" class="form-control">
+                                            <input 
+                                                [(ngModel)]="usuarioRequest.telefone" 
+                                                name="telefone" 
+                                                type="text" 
+                                                class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">E-mail</label>
-                                            <input type="email" class="form-control">
+                                            <input 
+                                                [(ngModel)]="usuarioRequest.email" 
+                                                name="email" 
+                                                type="email" 
+                                                class="form-control" 
+                                                [ngModelOptions]="{standalone: true}">
                                         </div>
                                     </div>
                                 </div>
                                 <br />
                                 <br />
-                                <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+                                <button type="submit" class="btn btn-primary pull-right">Atualizar</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>
@@ -68,10 +87,10 @@
                         </div>
                         <div class="card-body">
                             <h6 class="card-category text-gray">Usuário</h6>
-                            <h4 class="card-title">Nome do Usuário</h4>
-                            <p class="card-description"> CPF</p>
-                            <p class="card-description"> Telefone</p>
-                            <p class="card-description"> Email</p>
+                            <h4 class="card-title">{{ usuarioRequest.nome }}</h4> <!-- Nome do usuário -->
+                            <p class="card-description">{{ usuarioRequest.cpf }}</p> <!-- CPF -->
+                            <p class="card-description">{{ usuarioRequest.telefone }}</p> <!-- Telefone -->
+                            <p class="card-description">{{ usuarioRequest.email }}</p> <!-- Email -->
                         </div>
                     </div>
                 </div>
