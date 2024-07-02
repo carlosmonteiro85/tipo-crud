@@ -6,4 +6,5 @@
 /home/monteiro/workspace/tipo-crud/jee/src/main/java/com/legado/prototype/crudjee7/domain/ejb/UsuarioBean.java
 /home/monteiro/workspace/tipo-crud/jee/src/main/java/com/legado/prototype/crudjee7/domain/exception/ObjectNotFoundException.java
 /home/monteiro/workspace/tipo-crud/jee/src/main/java/com/legado/prototype/crudjee7/api/exceptionhandler/ExceptionHandlerMapper.java
+/home/monteiro/workspace/tipo-crud/jee/src/main/java/com/legado/prototype/crudjee7/core/cors/CorsFilter.java
 /home/monteiro/workspace/tipo-crud/jee/src/main/java/com/legado/prototype/crudjee7/api/dto/response/UsuarioResponse.java

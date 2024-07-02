@@ -12,6 +12,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DialogConfirmacaoComponent } from './components/dialog-confirmacao/dialog-confirmacao.component';
 import { DialogService } from './service/dialog.service';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { AlertaComponent } from './components/alerta/alerta.component'; 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,12 +25,16 @@ import { DialogService } from './service/dialog.service';
     FormComponent,
     ProfileComponent,
     FooterComponent,
-    DialogConfirmacaoComponent
+    DialogConfirmacaoComponent,
+    AlertaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule  
   ],
   providers: [DialogService],
   bootstrap: [AppComponent]

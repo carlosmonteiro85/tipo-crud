@@ -1,6 +1,7 @@
 // list.component.ts
 
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/model/usuario';
 import { DialogService } from 'src/app/service/dialog.service';
 
 
@@ -10,15 +11,16 @@ import { DialogService } from 'src/app/service/dialog.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  usuarios: MockData[] = MOCK_DATA;
-  
+  // usuarios: MockData[] = MOCK_DATA; para usar como mock
+  // usuarios: Usuario[] = []; 
+  usuarios: Usuario[] = MOCK_DATA; 
   constructor(private dialogService: DialogService) {}
   
   ngOnInit(): void {
     // Inicialmente, definimos os usuários com MOCK_DATA
   }
   
-  showDialog(usuario: MockData) {
+  showDialog(usuario: Usuario) {
     console.log('Show dialog for user:', usuario);
     
     // Exemplo de como chamar o diálogo de confirmação usando o serviço
@@ -36,15 +38,15 @@ export class ListComponent implements OnInit {
   }
 }
 
-interface MockData {
-  id: number;
-  nome: string;
-  cpf: string;
-  telefone: string;
-  email: string;
-}
+// interface MockData {
+//   id: number;
+//   nome: string;
+//   cpf: string;
+//   telefone: string;
+//   email: string;
+// }
 
-const MOCK_DATA: MockData[] = [
+const MOCK_DATA: Usuario[] = [
   {
     id: 1,
     nome: 'João',
